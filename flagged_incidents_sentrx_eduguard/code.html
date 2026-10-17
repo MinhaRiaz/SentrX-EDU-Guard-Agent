@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_dashboard" name="shell-type" />
+  <title>Incident Inbox - SentrX EduGuard Agent</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- External Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- External JavaScript File -->
+  <script src="script.js" defer></script>
+</head>
+
+<body
+  class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <aside
+    class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]">
+    <div class="flex flex-col">
+      <div
+        class="h-16 px-space-md flex items-center gap-space-sm border-b border-outline-variant/30 bg-surface-container-low/40">
+        <img alt="SentrX EduGuard Logo" class="h-8 w-auto object-contain"
+          src="logo.png" />
+        <div class="flex flex-col min-w-0">
+          <span
+            class="font-headline-sm text-[17px] tracking-tight text-on-surface font-semibold leading-none">SentrX</span>
+          <span class="font-label-code-sm text-[10px] uppercase tracking-wider text-primary font-bold mt-0.5">EduGuard
+            Agent</span>
+        </div>
+      </div>
+      <div class="px-space-md py-space-sm">
+        <span
+          class="font-label-code-sm text-label-code-sm uppercase text-outline tracking-wider px-space-sm font-semibold">Telemetry
+          Hub</span>
+      </div>
+      <nav class="flex flex-col gap-1 px-space-sm"
+        data-active-classes="bg-primary-fixed/50 text-primary font-semibold rounded">
+        <a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors group"
+          data-path="live-activity" href="../live_activity_sentrx_eduguard/code.html">
+          <div class="flex items-center gap-space-sm">
+            <span
+              class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary transition-colors">monitoring</span>
+            <span class="font-body-md text-sm font-medium">Live Activity</span>
+          </div>
+          <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        </a>
+        <a aria-current="page"
+          class="flex items-center justify-between px-space-sm py-2 transition-colors group bg-primary-fixed/50 text-primary font-semibold rounded"
+          data-path="flagged-incidents" href="../flagged_incidents_sentrx_eduguard/code.html">
+          <div class="flex items-center gap-space-sm">
+            <span class="material-symbols-outlined text-[20px] text-primary">shield_with_heart</span>
+            <span class="font-body-md text-sm">Flagged Incidents</span>
+          </div>
+          <span
+            class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-code-sm text-xs font-bold">14</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors group"
+          data-path="settings" href="../settings_sentrx_eduguard/code.html">
+          <span
+            class="material-symbols-outlined text-[20px] text-outline group-hover:text-on-surface transition-colors">tune</span>
+          <span class="font-body-md text-sm font-medium">Settings</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors group"
+          data-path="about-us" href="../about_us_sentrx_eduguard/code.html">
+          <span
+            class="material-symbols-outlined text-[20px] text-outline group-hover:text-on-surface transition-colors">info</span>
+          <span class="font-body-md text-sm font-medium">About Us</span>
+        </a>
+      </nav>
+    </div>
+    <div class="p-space-md bg-surface-container-lowest border-t border-outline-variant/30 flex flex-col gap-space-sm">
+      <div
+        class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40">
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span>
+          <span class="font-label-code-sm text-[11px] text-on-surface uppercase tracking-wide font-medium">Model served
+            on</span>
+        </div>
+        <span class="font-label-code-md text-label-code-md font-bold text-primary tracking-wider">AMD</span>
+      </div>
+      <div class="flex items-center justify-between px-space-xs">
+        <span class="font-label-code-sm text-[10px] text-outline uppercase font-medium">SOC TELEMETRY ACTIVE</span>
+        <span class="font-label-code-sm text-[11px] font-bold text-emerald-600">99.98%</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="pl-64">
+    <header
+      class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 px-gutter-desktop border-b border-outline-variant/40 shadow-sm">
+      <div class="h-full w-full flex items-center justify-between">
+        <div class="flex items-center gap-space-md">
+          <div class="flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200">
+            <span class="flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            <span class="font-label-code-sm text-emerald-700 font-semibold tracking-wide">EDUGUARD-CORE v2.4.1 //
+              ONLINE</span>
+          </div>
+          <div class="h-4 w-[1px] bg-outline-variant/50"></div>
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-[16px] text-outline">domain</span>
+            <span class="font-label-code-md text-xs text-on-surface-variant font-medium">District Unified SIS</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <div
+            class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30">
+            <span class="font-label-code-sm text-[11px] text-outline font-medium">ANALYST:</span>
+            <span class="font-label-code-sm text-[11px] text-on-surface font-semibold">SECOPS-ED-09</span>
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center font-medium shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">person</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative pt-16 min-h-screen bg-background px-gutter-desktop py-space-xl">
+      <div class="flex flex-col w-full">
+        <!-- Top Command Context Bar -->
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg pb-space-lg border-b border-outline-variant/40">
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center gap-space-sm mb-1">
+              <span
+                class="font-label-code-sm text-xs uppercase tracking-wider text-primary font-bold px-2 py-0.5 rounded bg-primary-fixed/50 border border-primary/20">Pipeline
+                Status: Armed</span>
+              <span class="font-label-code-sm text-xs text-outline font-medium">SOC INBOX FEED #884</span>
+            </div>
+            <h1 class="font-display text-2xl md:text-3xl text-on-surface tracking-tight font-bold">Incident Inbox</h1>
+            <p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+              <span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span>
+              <span>AI Agent detection pipeline</span>
+              <span class="text-outline mx-1">•</span>
+              <span class="text-error font-semibold">3 Pending threats</span>
+              <span>requiring human-in-the-loop triage</span>
+            </p>
+          </div>
+
+          <!-- Telemetry Triage Action Bar / Filters -->
+          <div class="flex flex-wrap items-center gap-space-sm" id="filter-container">
+            <button
+              class="filter-btn active flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white bg-primary-container font-label-code-md text-xs font-semibold transition-all shadow-sm"
+              data-filter="all">
+              <span>All Incidents</span>
+              <span class="px-1.5 py-0.2 rounded-full bg-white/20 text-white text-[10px] font-bold">3</span>
+            </button>
+            <button
+              class="filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface border border-outline-variant/50 font-label-code-md text-xs font-medium transition-all"
+              data-filter="high">
+              <span class="w-2 h-2 rounded-full bg-error"></span>
+              <span>High Risk</span>
+              <span class="text-outline">(2)</span>
+            </button>
+            <button
+              class="filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface border border-outline-variant/50 font-label-code-md text-xs font-medium transition-all"
+              data-filter="medium">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>Medium Risk</span>
+              <span class="text-outline">(1)</span>
+            </button>
+            <div class="hidden xl:flex items-center gap-2 ml-2 pl-3 border-l border-outline-variant/40">
+              <div
+                class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-label-code-sm text-xs font-medium">
+                <span class="relative flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Automated Quarantine Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Incident Stream Grid -->
+        <div class="grid grid-cols-1 gap-space-lg pt-space-lg" id="incident-list">
+          <!-- Card 1: High Risk -->
+          <article
+            class="incident-card group relative bg-surface-container-lowest hover:bg-surface-container-lowest transition-all duration-200 rounded-xl p-space-lg border border-outline-variant/50 hover:border-error/40 hover:shadow-md flex flex-col justify-between"
+            data-risk="high">
+            <div
+              class="absolute -top-[1px] left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-error/60 to-transparent">
+            </div>
+            <div class="flex flex-col gap-space-md">
+              <!-- Top Status Tier -->
+              <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                <div class="flex items-center gap-space-md">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 border border-red-200 text-red-700 font-label-code-md text-xs font-bold tracking-wide uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
+                    HIGH RISK
+                  </span>
+                  <span class="font-label-code-sm text-xs text-outline flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">schedule</span>
+                    12 minutes ago • SIS Production Gateway
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-label-code-sm text-xs text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-outline-variant/40 font-mono">SIG_ID:
+                    FERPA_SEC_901</span>
+                </div>
+              </div>
+
+              <!-- Incident Header & Target Breakdown -->
+              <div class="flex flex-col gap-1.5">
+                <h2
+                  class="font-headline-lg text-lg md:text-xl text-on-surface font-bold tracking-tight group-hover:text-primary transition-colors">
+                  High Risk: Former Staff Accessing Student Data
+                </h2>
+                <p class="font-body-md text-sm text-on-surface-variant max-w-4xl">
+                  Revoked credentials identified attempting access sequence on restricted student confidentiality
+                  records. Session routing bypass detected via legacy SSO token.
+                </p>
+              </div>
+
+              <!-- Micro Data Inspector -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-space-md bg-surface-container-low/60 p-space-md rounded-lg border border-outline-variant/30">
+                <div class="flex flex-col gap-0.5">
+                  <span
+                    class="font-label-code-sm text-[11px] text-outline uppercase tracking-wider font-semibold">Target
+                    User / Entity</span>
+                  <div class="flex items-center gap-1.5 font-label-code-md text-xs text-error font-medium">
+                    <span class="material-symbols-outlined text-[16px]">account_circle</span>
+                    <span class="truncate">usr_eriksen_ex_staff (Deactivated 2025-04-30)</span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-0.5">
+                  <span
+                    class="font-label-code-sm text-[11px] text-outline uppercase tracking-wider font-semibold">Target
+                    Resource</span>
+                  <div class="flex items-center gap-1.5 font-label-code-md text-xs text-on-surface">
+                    <span class="material-symbols-outlined text-[16px] text-outline">folder_shared</span>
+                    <span
+                      class="truncate text-on-surface-variant">SIS://student_records/pii_directory/confidential</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Footer -->
+            <div
+              class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md mt-space-md pt-space-md border-t border-outline-variant/30">
+              <div class="flex items-center gap-space-sm text-outline font-label-code-sm text-xs">
+                <span class="material-symbols-outlined text-error text-[16px]">security_update_warning</span>
+                <span>Policy rule: <strong class="text-on-surface font-semibold">FERPA Compliance Rule
+                    v4.8</strong></span>
+              </div>
+              <a href="../incident_detail_review_sentrx_eduguard/code.html"
+                class="group inline-flex items-center justify-center gap-space-sm px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-white font-headline-sm text-sm font-semibold transition-all shadow-sm shadow-primary/20">
+                <span>View Details &amp; Resolve</span>
+                <span
+                  class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: High Risk -->
+          <article
+            class="incident-card group relative bg-surface-container-lowest hover:bg-surface-container-lowest transition-all duration-200 rounded-xl p-space-lg border border-outline-variant/50 hover:border-error/40 hover:shadow-md flex flex-col justify-between"
+            data-risk="high">
+            <div
+              class="absolute -top-[1px] left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-error/60 to-transparent">
+            </div>
+            <div class="flex flex-col gap-space-md">
+              <!-- Top Status Tier -->
+              <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                <div class="flex items-center gap-space-md">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 border border-red-200 text-red-700 font-label-code-md text-xs font-bold tracking-wide uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
+                    HIGH RISK
+                  </span>
+                  <span class="font-label-code-sm text-xs text-outline flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">schedule</span>
+                    34 minutes ago • District Vault Cloud
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-label-code-sm text-xs text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-outline-variant/40 font-mono">SIG_ID:
+                    BULK_EXFIL_112</span>
+                </div>
+              </div>
+
+              <!-- Incident Header & Target Breakdown -->
+              <div class="flex flex-col gap-1.5">
+                <h2
+                  class="font-headline-lg text-lg md:text-xl text-on-surface font-bold tracking-tight group-hover:text-primary transition-colors">
+                  High Risk: Mass Bulk Export of Special Education IEPs
+                </h2>
+                <p class="font-body-md text-sm text-on-surface-variant max-w-4xl">
+                  Abnormal spike in multi-document archive download rate. Substitute educator credentials initiated
+                  unsegmented mass export exceeding baseline quota by 840%.
+                </p>
+              </div>
+
+              <!-- Micro Data Inspector -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-space-md bg-surface-container-low/60 p-space-md rounded-lg border border-outline-variant/30">
+                <div class="flex flex-col gap-0.5">
+                  <span
+                    class="font-label-code-sm text-[11px] text-outline uppercase tracking-wider font-semibold">Target
+                    User / Entity</span>
+                  <div class="flex items-center gap-1.5 font-label-code-md text-xs text-error font-medium">
+                    <span class="material-symbols-outlined text-[16px]">verified_user</span>
+                    <span class="truncate">usr_tward_substitute (Temp Authorization)</span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-0.5">
+                  <span
+                    class="font-label-code-sm text-[11px] text-outline uppercase tracking-wider font-semibold">Target
+                    Resource</span>
+                  <div class="flex items-center gap-1.5 font-label-code-md text-xs text-on-surface">
+                    <span class="material-symbols-outlined text-[16px] text-outline">inventory_2</span>
+                    <span class="truncate text-on-surface-variant">VAULT://iep_documents/batch_download.tar.gz</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Footer -->
+            <div
+              class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md mt-space-md pt-space-md border-t border-outline-variant/30">
+              <div class="flex items-center gap-space-sm text-outline font-label-code-sm text-xs">
+                <span class="material-symbols-outlined text-error text-[16px]">gavel</span>
+                <span>Policy rule: <strong class="text-on-surface font-semibold">IDEA PII Guardian
+                    Shield</strong></span>
+              </div>
+              <a href="../incident_detail_review_sentrx_eduguard/code.html"
+                class="group inline-flex items-center justify-center gap-space-sm px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-white font-headline-sm text-sm font-semibold transition-all shadow-sm shadow-primary/20">
+                <span>View Details &amp; Resolve</span>
+                <span
+                  class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Medium Risk -->
+          <article
+            class="incident-card group relative bg-surface-container-lowest hover:bg-surface-container-lowest transition-all duration-200 rounded-xl p-space-lg border border-outline-variant/50 hover:border-amber-500/40 hover:shadow-md flex flex-col justify-between"
+            data-risk="medium">
+            <div
+              class="absolute -top-[1px] left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent">
+            </div>
+            <div class="flex flex-col gap-space-md">
+              <!-- Top Status Tier -->
+              <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                <div class="flex items-center gap-space-md">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 font-label-code-md text-xs font-bold tracking-wide uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    MEDIUM RISK
+                  </span>
+                  <span class="font-label-code-sm text-xs text-outline flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">schedule</span>
+                    1 hour ago • Academic Records API
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-label-code-sm text-xs text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-outline-variant/40 font-mono">SIG_ID:
+                    ANOMALY_TIME_409</span>
+                </div>
+              </div>
+
+              <!-- Incident Header & Target Breakdown -->
+              <div class="flex flex-col gap-1.5">
+                <h2
+                  class="font-headline-lg text-lg md:text-xl text-on-surface font-bold tracking-tight group-hover:text-primary transition-colors">
+                  Medium Risk: Off-Hours Gradebook Modification Spike
+                </h2>
+                <p class="font-body-md text-sm text-on-surface-variant max-w-4xl">
+                  Grade alteration requests submitted between 02:30 and 03:15 AM local zone. Request origin resolves to
+                  an unrecognized foreign residential routing prefix.
+                </p>
+              </div>
+
+              <!-- Micro Data Inspector -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-space-md bg-surface-container-low/60 p-space-md rounded-lg border border-outline-variant/30">
+                <div class="flex flex-col gap-0.5">
+                  <span
+                    class="font-label-code-sm text-[11px] text-outline uppercase tracking-wider font-semibold">Target
+                    User / Entity</span>
+                  <div class="flex items-center gap-1.5 font-label-code-md text-xs text-amber-800 font-medium">
+                    <span class="material-symbols-outlined text-[16px]">public</span>
+                    <span class="truncate">usr_kpatel_instructor (Geo-IP: Unrecognized ASN)</span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-0.5">
+                  <span
+                    class="font-label-code-sm text-[11px] text-outline uppercase tracking-wider font-semibold">Target
+                    Resource</span>
+                  <div class="flex items-center gap-1.5 font-label-code-md text-xs text-on-surface">
+                    <span class="material-symbols-outlined text-[16px] text-outline">history_edu</span>
+                    <span class="truncate text-on-surface-variant">GRADES://final_term/override_scores</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Footer -->
+            <div
+              class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md mt-space-md pt-space-md border-t border-outline-variant/30">
+              <div class="flex items-center gap-space-sm text-outline font-label-code-sm text-xs">
+                <span class="material-symbols-outlined text-amber-600 text-[16px]">timer</span>
+                <span>Policy rule: <strong class="text-on-surface font-semibold">Off-Hours Grade Integrity
+                    Check</strong></span>
+              </div>
+              <a href="../incident_detail_review_sentrx_eduguard/code.html"
+                class="group inline-flex items-center justify-center gap-space-sm px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-white font-headline-sm text-sm font-semibold transition-all shadow-sm shadow-primary/20">
+                <span>View Details &amp; Resolve</span>
+                <span
+                  class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bottom SOC Status Ticker -->
+        <div
+          class="mt-space-xl pt-space-md border-t border-outline-variant/40 flex flex-col md:flex-row items-center justify-between gap-space-md text-outline">
+          <div class="flex items-center gap-space-sm">
+            <span class="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
+            <span
+              class="font-label-code-sm text-xs uppercase tracking-wide font-medium text-on-surface-variant">Autonomous
+              Mitigation Engine v2.4.1 online and monitoring telemetry</span>
+          </div>
+          <div class="flex items-center gap-space-lg font-label-code-sm text-xs font-mono">
+            <span>LATENCY: <strong class="text-on-surface font-semibold">14ms</strong></span>
+            <span>RETENTION: <strong class="text-on-surface font-semibold">90 DAYS ENCRYPTED</strong></span>
+            <span class="text-primary font-bold">SOC-ED-09 CONNECTED</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
